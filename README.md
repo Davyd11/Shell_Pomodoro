@@ -6,12 +6,12 @@ The Pomodoro Technique is a time management method developed by Francesco Cirill
 The objective of this script is to run a pomodoro timer inside the terminal. Show you don't lose your focus while coding.
 
 ## Usage
-If is the first time using the script, run:
+### If is the first time using the script, run:
 
 ```make```
 
 This will config the alias in your terminal.
 
-Once you have it configured, just run:
+### Once you have it configured, just run:
 
 ```pomodoro```
