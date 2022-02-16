@@ -14,4 +14,12 @@ This will config the alias in your terminal.
 
 ### Once you have it configured, just run:
 
-```pomodoro```
+```pomodoro``` default pomodoro timer
+
+or
+
+```pomodoro -e ``` for an extensive session
+
+
+### Erase Files from ~/Utils:
+```make delete```
