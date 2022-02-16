@@ -18,7 +18,7 @@ This will config the alias in your terminal.
 
 or
 
-```pomodoro -e ``` for an extensive session
+```pomodoro -e``` for an extensive session
 
 
 ### Erase Files from ~/Utils:
