@@ -6,7 +6,7 @@
 #    By: dpuente- <dpuente-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/16 16:57:31 by dpuente-          #+#    #+#              #
-#    Updated: 2022/02/16 17:38:59 by dpuente-         ###   ########.fr        #
+#    Updated: 2022/02/22 11:17:18 by dpuente-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,7 @@ ORG = \033[38;5;202m
 RESET = \033[0m
 
 all:					build_art
-	@chmod 711 config.zsh
-	@./config.zsh
+	@mkdir -p ~/Utils/pomodoro/ && cp -r -n . ~/Utils/pomodoro/
 
 build_art:
 
