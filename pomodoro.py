@@ -6,7 +6,7 @@
 #    By: dpuente- <dpuente-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/14 12:36:13 by dpuente-          #+#    #+#              #
-#    Updated: 2022/02/23 10:50:19 by dpuente-         ###   ########.fr        #
+#    Updated: 2022/02/23 17:48:28 by dpuente-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -142,5 +142,10 @@ def pomodoroProcedure():
 	
 
 if __name__ == "__main__":
-	if inputChecker() == 0:
-		pomodoroProcedure()
+	try:
+		if inputChecker() == 0:
+			pomodoroProcedure()
+		raise KeyboardInterrupt
+	except KeyboardInterrupt:
+		os.system('clear')
+		print("\nSee you later. Bye\n")
