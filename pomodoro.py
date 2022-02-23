@@ -6,7 +6,7 @@
 #    By: dpuente- <dpuente-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/14 12:36:13 by dpuente-          #+#    #+#              #
-#    Updated: 2022/02/16 17:46:00 by dpuente-         ###   ########.fr        #
+#    Updated: 2022/02/23 10:50:19 by dpuente-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ def inputChecker():
 	if len(sys.argv) == 2:
 		if (sys.argv[1] == "-e"):
 			Data.minutes = 49
-			Data.breakMinutes = 10
+			Data.breakMinutes = 9
 		elif len(sys.argv) != 1:
 			print ( Data.RedColor + "\nYour argument is not well written\nFor a extended pomodoro use the argument [ -e ]\n" + Data.ResetColor)
 			return 1
@@ -104,7 +104,7 @@ def pomodoro(_minutes, _color):
 
 	minutes = _minutes
 	seconds = Data.seconds
-	for remaining in range(60 * 25, 0, -1):
+	for remaining in range(60 * minutes, 0, -1):
 		printTimer(minutes, seconds, _color)
 		if seconds > 0:
 			seconds -= 1
