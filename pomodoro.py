@@ -6,7 +6,7 @@
 #    By: dpuente- <dpuente-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/14 12:36:13 by dpuente-          #+#    #+#              #
-#    Updated: 2022/02/23 17:48:28 by dpuente-         ###   ########.fr        #
+#    Updated: 2022/02/24 17:23:36 by javgonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,16 +71,18 @@ class Data:
 
 def inputChecker():
 	
-	if len(sys.argv) == 2:
+	if len(sys.argv) > 1:
 		if (sys.argv[1] == "-e"):
 			Data.minutes = 49
-			Data.breakMinutes = 9
-		elif len(sys.argv) != 1:
+			Data.breakMinutes = 10
+		elif (sys.argv[1] == "-c"):
+		      return parseCustomTime()
+		else:
 			print ( Data.RedColor + "\nYour argument is not well written\nFor a extended pomodoro use the argument [ -e ]\n" + Data.ResetColor)
 			return 1
 	return 0
 	
-def SplitNumbers(_number): # Split numbers into to diferent ints for better aplication
+def splitNumbers(_number): # Split numbers into to diferent ints for better aplication
 	
 	if _number <= 9:
 		number1 = 0;
@@ -90,10 +92,19 @@ def SplitNumbers(_number): # Split numbers into to diferent ints for better apli
 		number2 = int(str(_number)[1]);
 	return(number1, number2)
 
+def parseCustomTime():
+	if len(sys.argv) != 4:
+		print ( Data.RedColor + "\nYour argument is not well written\nFor custom pomodoro use:\n\tpomodoro -c <minutes> <seconds>\nExample:\n\tpomodoro -c 35 12" + Data.ResetColor)
+		return 1
+	else:
+		Data.minutes = int(sys.argv[2])
+		Data.seconds = int(sys.argv[3])
+		return 0
+
 def printTimer(_minutes, _seconds, _color):
 	
-	minute1, minute2 = SplitNumbers(_minutes);
-	second1, second2 = SplitNumbers(_seconds);
+	minute1, minute2 = splitNumbers(_minutes);
+	second1, second2 = splitNumbers(_seconds);
 	
 	os.system('clear')
 	for n in range(0, 5, +1):
@@ -104,7 +115,7 @@ def pomodoro(_minutes, _color):
 
 	minutes = _minutes
 	seconds = Data.seconds
-	for remaining in range(60 * minutes, 0, -1):
+	for remaining in range(60 * minutes + seconds, 0, -1):
 		printTimer(minutes, seconds, _color)
 		if seconds > 0:
 			seconds -= 1
@@ -115,29 +126,32 @@ def pomodoro(_minutes, _color):
 			seconds = 59
 		time.sleep(1)
 
-def PrintAlert():
+def printAlert():
 	
 	os.system('clear')
 	for n in range(0, 5, +1):
 		sys.stdout.write("{:2s}\n".format( Data.YellowColor + Data.Alert[n]))
 	sys.stdout.write("{:2s}\n\n".format( Data.Alert[n + 1]) + Data.ResetColor)
+	if "LC_TERMINAL" in os.environ:
+		if os.environ["LC_TERMINAL"] == "iTerm2":
+			sys.stdout.write("\33]9;Pomodoro has finished\7")
 
-def alertMessage(_mesage):
-	while (input(_mesage) == " "):
+def alertMessage(_message):
+	while (input(_message) == " "):
 		os.system('echo -e "\a"')
 		time.sleep(0.5)
-	return(0);
+	return(0)
 
 def pomodoroProcedure():
 	input("\nPress ENTER to start...")
 	for n in range(10, 0, -1): # Limit of 10 for protection
 		pomodoro(Data.minutes, Data.BlueColor)
 		sys.stdout.write("\n\n")
-		PrintAlert()
+		printAlert()
 		alertMessage("\nPress ENTER to start your break...")
 		pomodoro(Data.breakMinutes, Data.GreenColor)
 		sys.stdout.write("\n\n")
-		PrintAlert()
+		printAlert()
 		alertMessage("\nPress ENTER to focus...")
 	
 
@@ -147,5 +161,5 @@ if __name__ == "__main__":
 			pomodoroProcedure()
 		raise KeyboardInterrupt
 	except KeyboardInterrupt:
-		os.system('clear')
-		print("\nSee you later. Bye\n")
+#		os.system('clear')
+		print(Data.BlueColor + "\nSee you later. Bye\n" + Data.ResetColor)
