@@ -112,7 +112,6 @@ def printTimer(_minutes, _seconds, _color):
 		sys.stdout.write("{:2s}\n".format(stringTime))
 
 def pomodoro(_minutes, _color):
-
 	minutes = _minutes
 	seconds = Data.seconds
 	for remaining in range(60 * minutes + seconds, 0, -1):
