@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    pomodoro.py                                        :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dpuente- <dpuente-@student.42.fr>          +#+  +:+       +#+         #
+#    By: alvrodri <alvrodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/14 12:36:13 by dpuente-          #+#    #+#              #
-#    Updated: 2022/02/23 17:48:28 by dpuente-         ###   ########.fr        #
+#    Updated: 2022/02/24 16:49:26 by alvrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,6 @@ class Data:
 
 
 def inputChecker():
-	
 	if len(sys.argv) == 2:
 		if (sys.argv[1] == "-e"):
 			Data.minutes = 49
@@ -79,9 +78,8 @@ def inputChecker():
 			print ( Data.RedColor + "\nYour argument is not well written\nFor a extended pomodoro use the argument [ -e ]\n" + Data.ResetColor)
 			return 1
 	return 0
-	
+
 def SplitNumbers(_number): # Split numbers into to diferent ints for better aplication
-	
 	if _number <= 9:
 		number1 = 0;
 		number2 = _number;
@@ -101,7 +99,6 @@ def printTimer(_minutes, _seconds, _color):
 		sys.stdout.write("{:2s}\n".format(stringTime))
 
 def pomodoro(_minutes, _color):
-
 	minutes = _minutes
 	seconds = Data.seconds
 	for remaining in range(60 * minutes, 0, -1):
@@ -116,7 +113,6 @@ def pomodoro(_minutes, _color):
 		time.sleep(1)
 
 def PrintAlert():
-	
 	os.system('clear')
 	for n in range(0, 5, +1):
 		sys.stdout.write("{:2s}\n".format( Data.YellowColor + Data.Alert[n]))
@@ -126,7 +122,7 @@ def alertMessage(_mesage):
 	while (input(_mesage) == " "):
 		os.system('echo -e "\a"')
 		time.sleep(0.5)
-	return(0);
+	return(0)
 
 def pomodoroProcedure():
 	input("\nPress ENTER to start...")
@@ -148,4 +144,4 @@ if __name__ == "__main__":
 		raise KeyboardInterrupt
 	except KeyboardInterrupt:
 		os.system('clear')
-		print("\nSee you later. Bye\n")
+		print("\nSee you later. Bye\n" + Data.ResetColor)
