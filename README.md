@@ -6,7 +6,7 @@ The Pomodoro Technique is a time management method developed by Francesco Cirill
 The objective of this script is to run a pomodoro timer inside the terminal, so you don't lose your focus while coding.
 
 ## Usage
-### If is the first time using the script make sure you have intalled python3 and then run:
+### If is the first time using the script make sure you have installed python3 and then run:
 
 ```make``` or run ```mkdir -p ~/Utils/pomodoro/ && cp -r -n . ~/Utils/pomodoro/```
 
