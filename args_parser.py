@@ -6,11 +6,12 @@
 #    By: javgonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/10 14:27:37 by javgonza          #+#    #+#              #
-#    Updated: 2022/04/10 14:33:19 by javgonza         ###   ########.fr        #
+#    Updated: 2022/04/10 14:57:35 by javgonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 import sys
+from timer_printer import TimerPrinter
 
 def parseArgs():
 	
