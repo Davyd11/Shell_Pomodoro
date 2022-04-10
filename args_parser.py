@@ -6,7 +6,7 @@
 #    By: javgonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/10 14:27:37 by javgonza          #+#    #+#              #
-#    Updated: 2022/04/10 16:37:37 by javgonza         ###   ########.fr        #
+#    Updated: 2022/04/10 16:42:03 by javgonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,4 +24,5 @@ def parseArgs():
 		TimerPrinter.seconds = timer_args.custom_time[1]
 	elif (timer_args.extended == True):
 		TimerPrinter.minutes = 49
-		TimerPrinter.breakMinutes = 49
+		TimerPrinter.breakMinutes = 10
+	return 0
