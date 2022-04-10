@@ -6,7 +6,7 @@
 #    By: javgonza <javgonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/14 12:36:13 by javgonza          #+#    #+#              #
-#    Updated: 2022/04/10 14:19:49 by javgonza         ###   ########.fr        #
+#    Updated: 2022/04/10 14:43:29 by javgonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,38 +21,7 @@ import secrets
 from socketserver import DatagramRequestHandler
 import time, sys, os
 from timer_printer import TimerPrinter
-
-def inputChecker():
-	
-	if len(sys.argv) > 1:
-		if (sys.argv[1] == "-e"):
-			TimerPrinter.minutes = 49
-			TimerPrinter.breakMinutes = 10
-		elif (sys.argv[1] == "-c"):
-		      return parseCustomTime()
-		else:
-			print ( TimerPrinter.RedColor + "\nYour argument is not well written\nFor a extended pomodoro use the argument [ -e ]\n" + TimerPrinter.ResetColor)
-			return 1
-	return 0
-	
-#def splitNumbers(_number): # Split numbers into to diferent ints for better aplication
-#	
-#	if _number <= 9:
-#		number1 = 0;
-#		number2 = _number;
-#	else:
-#		number1 = int(str(_number)[0]);
-#		number2 = int(str(_number)[1]);
-#	return(number1, number2)
-
-def parseCustomTime():
-	if len(sys.argv) != 4:
-		print ( TimerPrinter.RedColor + "\nYour argument is not well written\nFor custom pomodoro use:\n\tpomodoro -c <minutes> <seconds>\nExample:\n\tpomodoro -c 35 12" + TimerPrinter.ResetColor)
-		return 1
-	else:
-		TimerPrinter.minutes = int(sys.argv[2])
-		TimerPrinter.seconds = int(sys.argv[3])
-		return 0
+from args_parser import parseArgs
 
 def pomodoro(_minutes, _color):
 	minutes = _minutes
@@ -99,7 +68,7 @@ def pomodoroProcedure():
 
 if __name__ == "__main__":
 	try:
-		if inputChecker() == 0:
+		if parseArgs() == 0:
 			pomodoroProcedure()
 		raise KeyboardInterrupt
 	except KeyboardInterrupt:
