@@ -6,7 +6,7 @@
 #    By: javgonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/10 15:02:39 by javgonza          #+#    #+#              #
-#    Updated: 2022/04/10 15:03:36 by javgonza         ###   ########.fr        #
+#    Updated: 2022/04/10 16:50:30 by javgonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,8 +50,9 @@ class TimerPrinter:
 	#################################
 	
 	minutes = 24
-	breakMinutes = 4
 	seconds = 59
+	breakMinutes = 4
+	breakSeconds = 59
 
 	##########################
 	# Colors for text output #

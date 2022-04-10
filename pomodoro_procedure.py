@@ -6,7 +6,7 @@
 #    By: javgonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/10 15:00:48 by javgonza          #+#    #+#              #
-#    Updated: 2022/04/10 15:05:18 by javgonza         ###   ########.fr        #
+#    Updated: 2022/04/10 16:53:51 by javgonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ from timer_printer import TimerPrinter
 from timer_alerts import *
 import sys, time
 
-def pomodoro(_minutes, _color):
+def pomodoro(_minutes, _color, _seconds):
 	minutes = _minutes
-	seconds = TimerPrinter.seconds
+	seconds = _seconds
 	for remaining in range(60 * minutes + seconds, 0, -1):
 		TimerPrinter.print(minutes, seconds, _color)
 		if seconds > 0:
@@ -29,12 +29,12 @@ def pomodoro(_minutes, _color):
 		time.sleep(1)
 
 def pomodoroNormalTimer():
-	pomodoro(TimerPrinter.minutes, TimerPrinter.BlueColor)
+	pomodoro(TimerPrinter.minutes, TimerPrinter.BlueColor, TimerPrinter.seconds)
 	sys.stdout.write("\n\n")
 	printAlert()
 
 def pomodoroBreakTimer():
-	pomodoro(TimerPrinter.breakMinutes, TimerPrinter.GreenColor)
+	pomodoro(TimerPrinter.breakMinutes, TimerPrinter.GreenColor, TimerPrinter.breakSeconds)
 	sys.stdout.write("\n\n")
 	printAlert()
 
