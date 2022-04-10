@@ -14,14 +14,7 @@ The objective of this script is to run a pomodoro timer inside the terminal, so 
 
 This will config the alias in your terminal.
 
-### Once you have it configured, just run:
-
-```pomodoro``` default pomodoro timer
-
-or
-
-```pomodoro -e``` for an extensive session
-
+```pomodoro -h``` to display options
 
 ### Erase Files from ~/Utils:
 ```make delete```
