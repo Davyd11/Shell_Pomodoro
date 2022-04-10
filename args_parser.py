@@ -6,7 +6,7 @@
 #    By: javgonza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/10 14:27:37 by javgonza          #+#    #+#              #
-#    Updated: 2022/04/10 17:02:35 by javgonza         ###   ########.fr        #
+#    Updated: 2022/04/10 17:06:17 by javgonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ def parseArgs():
 	if (timer_args.custom_break != None):
 		TimerPrinter.breakMinutes = timer_args.custom_break[0]
 		TimerPrinter.breakSeconds = timer_args.custom_break[1]
-	if (timer_args.custom_work == None and timer_args.custom_break == None):
+	if (timer_args.custom_work == None and timer_args.custom_break == None and timer_args.extended == True):
 		TimerPrinter.minutes = 49
 		TimerPrinter.breakMinutes = 10
 	return 0
